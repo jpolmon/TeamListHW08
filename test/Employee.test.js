@@ -1,7 +1,7 @@
 const Employee = require('../lib/Employee');
 
 describe('Employee class', () => {
-    it('creates an employee object', () => {
+    it('creates an Employee object', () => {
         const employee = new Employee('Chad', '2', 'chad@gmail.com');
         expect(employee.name).toEqual('Chad');
         expect(employee.id).toEqual('2');
@@ -9,26 +9,25 @@ describe('Employee class', () => {
     });
 
     describe("getName method", ( () => {
-        it('Return the name of the employee', () => {
-            const employee = new Employee('Chad', '2', 'chad@gmail.com');
+        it('Return the name of the Employee', () => {
             expect(new Employee('Chad', '2', 'chad@gmail.com').getName()).toBe('Chad');
         });
     }))
 
     describe("getId method", ( () => {
-        it('Return the id of the employee', () => {
+        it('Return the id of the Employee', () => {
             expect(new Employee('Chad', '2', 'chad@gmail.com').getId()).toBe('2');
         });
     }))
 
     describe("getEmail method", ( () => {
-        it('Return the email of the employee', () => {
+        it('Return the email of the Employee', () => {
             expect(new Employee('Chad', '2', 'chad@gmail.com').getEmail()).toBe('chad@gmail.com');
         });
     }))
 
     describe("getRole method", ( () => {
-        it('Return the role of the employee', () => {
+        it('Return the role of the Employee', () => {
             expect(new Employee('Chad', '2', 'chad@gmail.com').getRole()).toBe('Employee');
         });
     }))
