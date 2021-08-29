@@ -1,14 +1,13 @@
 {
-  "name": "HW08",
+  "name": "hw08",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "directories": {
     "lib": "lib",
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +16,15 @@
     "fs": "0.0.1-security",
     "inquirer": "^8.1.2",
     "jest": "^27.1.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpolmon/TeamListHW08.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jpolmon/TeamListHW08/issues"
+  },
+  "homepage": "https://github.com/jpolmon/TeamListHW08#readme",
+  "description": ""
 }
