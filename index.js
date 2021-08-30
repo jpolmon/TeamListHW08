@@ -3,6 +3,7 @@ const fs = require('fs');
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
 const Engineer= require("./lib/Engineer");
+const { doesNotMatch } = require('assert');
 
 let team = [];
 
@@ -15,22 +16,71 @@ async function init() {
             {
                 type: 'input',
                 message: `Please enter the team manager's name:`,
-                name: 'name'
+                name: 'name',
+                validate: function (name) {
+                    valid = /[A-Z][a-z]*/.test(name)
+
+                    if (valid) {
+                        return true;
+                    }
+                    else {
+                        let done = this.async();
+                        done('***  Please enter a valid name! ***')
+                        return; 
+                    }
+                }
             },
             {
                 type: 'input',
                 message: `Please enter the team manager's employee ID:`,
-                name: 'id'
+                name: 'id',
+                validate: function (id) {
+                    valid = /^[0-9]*[1-9][0-9]*$/.test(id)
+
+                    if (valid) {
+                        return true;
+                    }
+                    else {
+                        let done = this.async();
+                        done('***  Please enter a valid id number! ***')
+                        return; 
+                    }
+                }
             },
             {
                 type: 'input',
                 message: `Please enter the team manager's email:`,
-                name: 'email'
+                name: 'email',
+                validate: function (email) {
+                    
+                    valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+        
+                    if (valid) {
+                        return true;
+                    } 
+                    else {
+                        let done = this.async();
+                        done('***  Please enter a valid email! ***')
+                        return;                        
+                    }
+                }
             },
             {
                 type: 'input',
                 message: `Please enter the team manager's office number:`,
-                name: 'officeNum'
+                name: 'officeNum',
+                validate: function (officeNum) {
+                    valid = /^[0-9]*[1-9][0-9]*$/.test(officeNum)
+
+                    if (valid) {
+                        return true;
+                    }
+                    else {
+                        let done = this.async();
+                        done('***  Please enter a valid office number! ***')
+                        return; 
+                    }
+                }
             }
         ])
     );
@@ -50,22 +100,72 @@ async function init() {
                     {
                         type: 'input',
                         message: `Please enter the engineer's name:`,
-                        name: 'name'
+                        name: 'name',
+                        validate: function (name) {
+                            valid = /[A-Z][a-z]*/.test(name)
+        
+                            if (valid) {
+                                return true;
+                            }
+                            else {
+                                let done = this.async();
+                                done('***  Please enter a valid name! ***')
+                                return; 
+                            }
+                        }
                     },
                     {
                         type: 'input',
                         message: `Please enter the engineer's employee ID:`,
-                        name: 'id'
+                        name: 'id',
+                        validate: function (id) {
+                            valid = /^[0-9]*[1-9][0-9]*$/.test(id)
+        
+                            if (valid) {
+                                return true;
+                            }
+                            else {
+                                let done = this.async();
+                                done('***  Please enter a valid id number! ***')
+                                return; 
+                            }
+                        }
                     },
                     {
                         type: 'input',
                         message: `Please enter the engineer's email:`,
-                        name: 'email'
+                        name: 'email',
+                        validate: function (email) {
+                    
+                            valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+                
+                            if (valid) {
+                                return true;
+                            } 
+                            else {
+                                let done = this.async();
+                                done('***  Please enter a valid email! ***')
+                                return;                        
+                            }
+                        }
                     },
                     {
                         type: 'input',
                         message: `Please enter the engineer's GitHub username:`,
-                        name: 'github'
+                        name: 'github',
+                        validate: function (github) {
+                    
+                            valid = /^[a-zA-Z]+$/.test(github)
+                
+                            if (valid) {
+                                return true;
+                            } 
+                            else {
+                                let done = this.async();
+                                done('***  Please enter a valid github username! ***')
+                                return;                        
+                            }
+                        }
                     }
                 ])
             );
@@ -76,22 +176,71 @@ async function init() {
                     {
                         type: 'input',
                         message: `Please enter the intern's name:`,
-                        name: 'name'
+                        name: 'name',
+                        validate: function (name) {
+                            valid = /[A-Z][a-z]*/.test(name)
+        
+                            if (valid) {
+                                return true;
+                            }
+                            else {
+                                let done = this.async();
+                                done('***  Please enter a valid name! (Capitalized first letter) ***')
+                                return; 
+                            }
+                        }
                     },
                     {
                         type: 'input',
                         message: `Please enter the intern's employee ID:`,
-                        name: 'id'
+                        name: 'id',
+                        validate: function (id) {
+                            valid = /^[0-9]*[1-9][0-9]*$/.test(id)
+        
+                            if (valid) {
+                                return true;
+                            }
+                            else {
+                                let done = this.async();
+                                done('***  Please enter a valid id number! ***')
+                                return; 
+                            }
+                        }
                     },
                     {
                         type: 'input',
                         message: `Please enter the intern's email:`,
-                        name: 'email'
+                        name: 'email',
+                        validate: function (email) {
+                    
+                            valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+                
+                            if (valid) {
+                                return true;
+                            } 
+                            else {
+                                let done = this.async();
+                                done('***  Please enter a valid email! ***')
+                                return;                        
+                            }
+                        }
                     },
                     {
                         type: 'input',
                         message: `Please enter the intern's school:`,
-                        name: 'school'
+                        name: 'school',
+                        validate: function (school) {
+                            valid = /[A-Z][a-z]*/.test(school)
+        
+                            if (valid) {
+                                return true;
+                            }
+                            else {
+                                let done = this.async();
+                                done('***  Please enter a valid school name! (Capitalized first letter) ***')
+                                return; 
+                            }
+                        }
                     }
                 ])
             );
