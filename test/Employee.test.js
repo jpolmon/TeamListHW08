@@ -11,7 +11,7 @@ describe('Employee class', () => {
     describe("getName method", ( () => {
         it('Return the name of the Employee', () => {
             expect(new Employee('Chad', '2', 'chad@gmail.com').getName()).toBe('Chad');
-        });
+        }); 
     }))
 
     describe("getId method", ( () => {

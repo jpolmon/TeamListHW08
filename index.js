@@ -3,7 +3,6 @@ const fs = require('fs');
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
 const Engineer= require("./lib/Engineer");
-const { doesNotMatch } = require('assert');
 
 let team = [];
 
@@ -155,7 +154,7 @@ async function init() {
                         name: 'github',
                         validate: function (github) {
                     
-                            valid = /^[a-zA-Z]+$/.test(github)
+                            valid = /^[A-Za-z0-9_-]*$/.test(github)
                 
                             if (valid) {
                                 return true;
@@ -353,5 +352,3 @@ function generateCards(teamArray) {
     
     return text;
 } 
-
-
